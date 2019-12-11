@@ -5,4 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>parent</name>
+  <modules>
+  	<module>common</module>
+  </modules>
 </project>
