@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  zookeeper:
+     image: wurstmeister/zookeeper
+     ports:
+      - 2181:2181
+      
+  kafka:
+     image: wurstmeister/kafka
+     ports:
+      - 9092:9092
+      - 29092:29092
+     depends_on:
+     - zookeeper
+     expose:
+     - '9092'
+     environment:
+        KAFKA_LISTENERS: DOCKER://0.0.0.0:29092,LOCAL://0.0.0.0:9092
+        KAFKA_ADVERTISED_LISTENERS: DOCKER://kafka:29092,LOCAL://localhost:9092
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: DOCKER:PLAINTEXT,LOCAL:PLAINTEXT
+        KAFKA_INTER_BROKER_LISTENER_NAME: DOCKER
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"

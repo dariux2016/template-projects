@@ -1,0 +1,12 @@
+#kafka configuration
+kafka:
+  brokers: localhost:9092
+  serializer-class: com.github.dariux2016.kafka.converter.MessageWrapperSerializer
+  deserializer-class: com.github.dariux2016.kafka.converter.MessageWrapperDeserializer
+  reconnect-backoff-ms: 2000
+  max-block-ms: 5000
+  
+#kafka consumer-producer configs
+kafkaProducerConsumerProperties: ?brokers={{kafka.brokers}}&valueDeserializer={{kafka.deserializer-class}}&serializerClass={{kafka.serializer-class}}&maxBlockMs={{kafka.max-block-ms}}&reconnectBackoffMaxMs={{kafka.reconnect-backoff-ms}}
+
+kafka-uri-base: kafka:EXAMPLE-TOPIC
