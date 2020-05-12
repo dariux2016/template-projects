@@ -24,7 +24,6 @@ public class ProducerService {
 	private MessageWrapper encapsulateMessage(String payload, Class payloadType) {
 		Date timestamp = new Date();
 		MessageType messageType = MessageType.typeValue(payloadType);
-		//per il momento sugli oggetti vuoti passo null
 		return MessageWrapper.builder()
 				.timestamp(timestamp.getTime())
 				.messageType(messageType)

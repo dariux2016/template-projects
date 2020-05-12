@@ -1,0 +1,12 @@
+target/
+*/target/
+*.project
+*.classpath
+**/org.eclipse.core.resources.prefs
+**/org.eclipse.jdt.core.prefs
+**/org.eclipse.wst.common.project.facet.core.xml
+**/org.springframework.ide.eclipse.prefs
+**/org.eclipse.wst.common.project.facet.core.xml
+**/org.eclipse.m2e.core.prefs
+**/classpath-data.json
+**/.springBeans
