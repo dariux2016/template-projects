@@ -1,4 +1,4 @@
-package org.dariux2016.kafka;
+package com.github.dariux2016.kafka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
