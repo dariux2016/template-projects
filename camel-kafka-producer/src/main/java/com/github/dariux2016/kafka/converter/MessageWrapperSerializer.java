@@ -20,7 +20,8 @@ public class MessageWrapperSerializer implements Serializer<MessageWrapper> {
 	@Override
 	public void configure(Map<String, ?> map, boolean b) {	}
 
-	@Override public byte[] serialize(String arg0, MessageWrapper arg1) {
+	@Override
+	public byte[] serialize(String arg0, MessageWrapper arg1) {
 		LOGGER.info("Serializing message wrapper {}", arg1);
 		byte[] retVal = null;
 		ObjectMapper objectMapper = new ObjectMapper();
