@@ -1,0 +1,1 @@
+products.path: http://localhost:${local.server.port}/products
