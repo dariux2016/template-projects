@@ -30,15 +30,19 @@ public class RestCaller<T> {
 	private RestTemplateResponseErrorHandler defaultErrorHandler;
 	
 	/**
-	 * Call for an operation with a single object
-	 * @param service
-	 * @param id : optional and will be appended to the URL path
+	 * Call for an operation
+	 * @param service : service enumeration referring to the URL to be called
+	 * @param httpMethod : HTTP method to call (GET, POST, PUT, ...)
+	 * @param id : optional, will be appended to the URL path
+	 * @param params: optional request parameters
+	 * @param body: request body
 	 * @param responseType
+	 * @param customErrorHandler : custom error handler
 	 * @return
 	 */
-	public ResponseEntity<T> callForObject(ServicePath service, HttpMethod httpMethod, 
+	public ResponseEntity<T> call(ServicePath service, HttpMethod httpMethod, 
 								Long id, Map<String, Object> params, T body, 
-								Class<T> responseType, RestTemplateResponseErrorHandler errorHandler) {
+								Class<T> responseType, RestTemplateResponseErrorHandler customErrorHandler) {
 		
 		String url = propertyResolver.getPropertyValue(service.getPath());
 		if(id != null) {
@@ -54,7 +58,7 @@ public class RestCaller<T> {
 //		headers.set("jwtHeader", jwtHeader);
 		
 		RestTemplate restTemplate = new RestTemplate();
-		setErrorHandler(restTemplate, errorHandler);
+		setErrorHandler(restTemplate, customErrorHandler);
 		return restTemplate.exchange(url, httpMethod, new HttpEntity<>(body, headers), responseType, params);
 	}
 		

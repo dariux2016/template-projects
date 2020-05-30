@@ -34,7 +34,7 @@ public class RestTemplateTest {
 	@Test
 	public void testGetAll() throws Exception {
 		LOGGER.info("##################testGetAll");
-		ResponseEntity<Product[]> response = restCallerArray.callForObject(ServicePath.PRODUCTS, HttpMethod.GET, 
+		ResponseEntity<Product[]> response = restCallerArray.call(ServicePath.PRODUCTS, HttpMethod.GET, 
 															null, null, null, Product[].class, null);
 		if(response.getStatusCode() == HttpStatus.OK) {
 			Product[] list = response.getBody();
@@ -48,7 +48,7 @@ public class RestTemplateTest {
 	@Test
 	public void testGetById() throws Exception {
 		LOGGER.info("##################testGetById");
-		ResponseEntity<Product> response = restCaller.callForObject(ServicePath.PRODUCTS, HttpMethod.GET, 
+		ResponseEntity<Product> response = restCaller.call(ServicePath.PRODUCTS, HttpMethod.GET, 
 															1L, null, null, Product.class, null);
 		if(response.getStatusCode() == HttpStatus.OK) {
 			Product product = response.getBody();
@@ -62,7 +62,7 @@ public class RestTemplateTest {
 	public void testPostById() throws Exception {
 		LOGGER.info("##################testPostById");
 		Product newProduct = Product.builder().code("Z").name("Television").build();
-		ResponseEntity<Product> response = restCaller.callForObject(ServicePath.PRODUCTS, HttpMethod.POST, 
+		ResponseEntity<Product> response = restCaller.call(ServicePath.PRODUCTS, HttpMethod.POST, 
 															null, null, newProduct, Product.class, null);
 		if(response.getStatusCode() == HttpStatus.CREATED) {
 			Product product = response.getBody();
@@ -76,7 +76,7 @@ public class RestTemplateTest {
 	public void testPutById() throws Exception {
 		LOGGER.info("##################testPutById");
 		Product newProduct = Product.builder().code("T").name("Videogame").build();
-		ResponseEntity<Product> response = restCaller.callForObject(ServicePath.PRODUCTS, HttpMethod.PUT, 
+		ResponseEntity<Product> response = restCaller.call(ServicePath.PRODUCTS, HttpMethod.PUT, 
 															2L, null, newProduct, Product.class, null);
 		if(response.getStatusCode() == HttpStatus.OK) {
 			Product product = response.getBody();
