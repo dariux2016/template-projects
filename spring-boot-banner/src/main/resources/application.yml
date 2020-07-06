@@ -1,0 +1,10 @@
+#spring.banner.location: classpath:mybanner.txt
+#spring.banner.location: classpath:folder/mybanner.txt
+
+spring.banner.image:
+   #location: classpath:mybanner.gif
+   width: 32
+   height: 20
+   margin: 0
+   
+#spring.main.banner-mode: 'off'
