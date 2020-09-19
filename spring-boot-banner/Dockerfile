@@ -1,5 +1,5 @@
 FROM openjdk:8-jre
-EXPOSE 8080
+EXPOSE 8888
 ADD target/spring-boot-banner.jar .
 CMD java -Djava.awt.headless=true \
 		 -server \
